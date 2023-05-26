@@ -26,6 +26,7 @@ public class Grafo{
     public ArrayList<Integer> verticesAdjacentes(int vertice) {
         return this.listaAdjacencia[vertice];
     }
+    
     public String toDot() {
         String resultado = "digraph G { " + System.lineSeparator();
         for (int i = 0; i < numeroVertices; i++) {

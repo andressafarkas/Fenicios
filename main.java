@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class main {
-    private BuscaProfundidade busca;
+    private BuscaLargura busca;
     private static final char NAVEGAVEL = '.';
     private static Porto[] portos;
     private static int[] dx = {-1, 0, 1, 0}; // Norte, Leste, Sul, Oeste
