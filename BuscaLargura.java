@@ -9,6 +9,7 @@ public class BuscaLargura {
         this.visitado = new boolean[grafo.getNumeroVertices()];
     }
 
+    /*
     public void BuscaEmLargura(Grafo g, int vertice) {
         Queue<Integer> fila = new LinkedList<>();
         visitado[vertice] = true;
@@ -28,4 +29,6 @@ public class BuscaLargura {
             }
         }
     }
+
+     */
 }
