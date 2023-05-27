@@ -4,13 +4,11 @@ public class main {
     private BuscaLargura busca;
     private static final char NAVEGAVEL = '.';
     private static Porto[] portos;
-    private static int[] dx = {-1, 0, 1, 0}; // Norte, Leste, Sul, Oeste
-    private static int[] dy = {0, 1, 0, -1}; // Norte, Leste, Sul, Oeste
 
     public static void main(String[] args) throws IOException
     {
 
-        FileParser.parseToGraph("Mapas/mapa0.txt");
+        Grafo grafo = FileParser.parseToGraph("Mapas/mapa0.txt");
 
        /* // Leitura do arquivo
         BufferedReader br = new BufferedReader(new FileReader("caminho_para_o_arquivo"));
