@@ -1,8 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Grafo{
 
-    private ArrayList<Integer> listaAdjacencia[];
+    private final ArrayList<Nodo>[] listaAdjacencia;
+
+    private HashMap<Nodo, Integer> nodos;
 
     public int getNumeroVertices() {
         return numeroVertices;
@@ -19,12 +23,30 @@ public class Grafo{
             listaAdjacencia[i] = new ArrayList<>();
         }
     }
-    public void adicionarAresta(int v, int w) {
-        this.listaAdjacencia[v].add(w);
+
+    private class Nodo
+    {
+        public int x;
+        public int y;
+
+        public boolean porto;
+
+        public Nodo(int x, int y, boolean porto)
+        {
+            this.x = x;
+            this.y = y;
+            this.porto = porto;
+        }
+    }
+    public void adicionarAresta(Nodo v, Nodo w) {
+        this.listaAdjacencia[nodos.get(v)].add(w);
         this.numeroArestas++;
     }
-    public ArrayList<Integer> verticesAdjacentes(int vertice) {
-        return this.listaAdjacencia[vertice];
+
+    public void adicionarNodo(int x, int y, boolean porto)
+    {
+        Nodo nodo = new Nodo(x, y, porto);
+        nodos.put(nodo, nodos.size());
     }
     
     public String toDot() {

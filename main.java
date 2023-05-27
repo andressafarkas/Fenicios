@@ -7,8 +7,12 @@ public class main {
     private static int[] dx = {-1, 0, 1, 0}; // Norte, Leste, Sul, Oeste
     private static int[] dy = {0, 1, 0, -1}; // Norte, Leste, Sul, Oeste
 
-    public static void main(String[] args) throws IOException {
-        // Leitura do arquivo
+    public static void main(String[] args) throws IOException
+    {
+
+        FileParser.parseToGraph("Mapas/mapa0.txt");
+
+       /* // Leitura do arquivo
         BufferedReader br = new BufferedReader(new FileReader("caminho_para_o_arquivo"));
         String[] dimensoes = br.readLine().split(" ");
         int linhas = Integer.parseInt(dimensoes[0]);
@@ -26,5 +30,6 @@ public class main {
             }
         }
         br.close();
+        */
     };
 };
