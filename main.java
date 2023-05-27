@@ -8,7 +8,7 @@ public class main {
     public static void main(String[] args) throws IOException
     {
 
-        Grafo grafo = FileParser.parseToGraph("Mapas/mapa0.txt");
+        Grafo grafo = ParseadorDeGrafo.parseToGraph("Mapas/mapa0.txt");
 
        /* // Leitura do arquivo
         BufferedReader br = new BufferedReader(new FileReader("caminho_para_o_arquivo"));
