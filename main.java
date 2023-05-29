@@ -9,6 +9,6 @@ public class main {
     {
 
         Grafo grafo = ParseadorDeGrafo.parseToGraph("Mapas/mapa0.txt");
-        LerArquivo ler = new LerArquivo();
+        
     };
 };
