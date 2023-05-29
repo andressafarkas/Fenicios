@@ -1,63 +1,53 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Grafo{
-
+public class Grafo {
     private final HashMap<Nodo, ArrayList<Nodo>> listaAdjacencia;
     private final int numeroVertices;
     private int numeroArestas;
 
-
-    public int getNumeroVertices()
-    {
+    public int getNumeroVertices() {
         return numeroVertices;
     }
-
 
     public Grafo(int numeroVertices) {
         this.numeroVertices = numeroVertices;
         this.numeroArestas = 0;
-        listaAdjacencia = new HashMap<>(numeroVertices);
+        this.listaAdjacencia = new HashMap<>();
     }
 
     public void adicionarAresta(Nodo v, Nodo w) {
-        this.listaAdjacencia.get(v).add(w);
+        if (listaAdjacencia.containsKey(v)) {
+            this.listaAdjacencia.get(v).add(w);
+        } else {
+            ArrayList<Nodo> novaLista = new ArrayList<>();
+            novaLista.add(w);
+            this.listaAdjacencia.put(v, novaLista);
+        }
         this.numeroArestas++;
     }
 
-    public int getNumeroArestas()
-    {
+    public int getNumeroArestas() {
         return numeroArestas;
     }
 
-    public void adicionarNodo(int x, int y, boolean porto)
-    {
-        Nodo nodo = new Nodo(x, y, porto);
-        listaAdjacencia.put(nodo, new ArrayList<>());
+    public void adicionarNodo(Nodo nodo) {
+        listaAdjacencia.putIfAbsent(nodo, new ArrayList<>());
     }
 
-    /*
-    public String toDot() {
-        String resultado = "digraph G { " + System.lineSeparator();
-        for (int i = 0; i < numeroVertices; i++) {
-            resultado = resultado + "\t" + i + ";" + System.lineSeparator();
-        }
-        for (int i = 0; i < numeroVertices; i++) {
-            for (int j = 0; j < listaAdjacencia.keySet().size(); j++) {
-                resultado += "\t" + i + "->" + listaAdjacencia[i].get(j) + ";" + System.lineSeparator();
-            }
-        }
-        resultado += "}";
-        return resultado;
-    }
-    */
-
-    public List<Nodo> getNodos()
-    {
+    public List<Nodo> getNodos() {
         return new LinkedList<>(listaAdjacencia.keySet());
     }
 
-    public ArrayList<Nodo> verticesAdjacentes(int x, int y)
+    public ArrayList<Nodo> verticesAdjacentes(Nodo nodo) {
+        return listaAdjacencia.getOrDefault(nodo, new ArrayList<>());
+    }
+
+    public void adicionarNodoInt(int x, int y, boolean porto)
     {
-        return listaAdjacencia.get(new Nodo(x, y, false));
+        Nodo nodo = new Nodo(x, y, porto);
+        listaAdjacencia.put(nodo, new ArrayList<>());
     }
 }

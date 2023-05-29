@@ -2,33 +2,30 @@ import java.util.*;
 
 public class BuscaLargura {
     private Grafo grafo;
-    private boolean[] visitado;
+    private HashSet<Nodo> visitado;
 
     public BuscaLargura(Grafo grafo) {
         this.grafo = grafo;
-        this.visitado = new boolean[grafo.getNumeroVertices()];
+        this.visitado = new HashSet<>();
     }
 
-    /*
-    public void BuscaEmLargura(Grafo g, int vertice) {
-        Queue<Integer> fila = new LinkedList<>();
-        visitado[vertice] = true;
-        fila.add(vertice);
+    public void bfs(Nodo nodoInicial) {
+        Queue<Nodo> fila = new LinkedList<>();
+        visitado.add(nodoInicial);
+        fila.add(nodoInicial);
 
         while (!fila.isEmpty()) {
-            int v = fila.poll();
-            visitado[v] = true;
+            Nodo nodoAtual = fila.poll(); 
+            System.out.println("Visitando o nodo: " + nodoAtual);
 
-            ArrayList<Integer> adjacentes = grafo.verticesAdjacentes(v);
+            ArrayList<Nodo> adjacentes = grafo.verticesAdjacentes(nodoAtual);
 
-            for (int w : adjacentes) {
-                if (!visitado[w]) {
-                    visitado[w] = true;
-                    fila.add(w);
+            for (Nodo nodoAdjacente : adjacentes) {
+                if (!visitado.contains(nodoAdjacente)) {
+                    visitado.add(nodoAdjacente);
+                    fila.add(nodoAdjacente);
                 }
             }
         }
     }
-
-     */
 }

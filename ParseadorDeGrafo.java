@@ -43,7 +43,7 @@ public class ParseadorDeGrafo
                         continue;
                     }
 
-                    grafo.adicionarNodo(i, j, isPorto(c));
+                    grafo.adicionarNodoInt(i, j, isPorto(c));
                 }
             }
 
