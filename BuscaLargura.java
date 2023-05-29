@@ -3,29 +3,35 @@ import java.util.*;
 public class BuscaLargura {
     private Grafo grafo;
     private HashSet<Nodo> visitado;
+    private HashMap<Nodo, Integer> distancias;
 
     public BuscaLargura(Grafo grafo) {
         this.grafo = grafo;
         this.visitado = new HashSet<>();
+        this.distancias = new HashMap<>();
     }
 
     public void bfs(Nodo nodoInicial) {
         Queue<Nodo> fila = new LinkedList<>();
         visitado.add(nodoInicial);
         fila.add(nodoInicial);
+        distancias.put(nodoInicial, 0);
 
         while (!fila.isEmpty()) {
-            Nodo nodoAtual = fila.poll(); 
-            System.out.println("Visitando o nodo: " + nodoAtual);
+            Nodo nodoAtual = fila.poll();
 
             ArrayList<Nodo> adjacentes = grafo.verticesAdjacentes(nodoAtual);
-
             for (Nodo nodoAdjacente : adjacentes) {
                 if (!visitado.contains(nodoAdjacente)) {
                     visitado.add(nodoAdjacente);
                     fila.add(nodoAdjacente);
+                    distancias.put(nodoAdjacente, distancias.get(nodoAtual) + 1);
                 }
             }
         }
+    }
+
+    public int distancia(Nodo nodo) {
+        return distancias.getOrDefault(nodo, -1);
     }
 }
