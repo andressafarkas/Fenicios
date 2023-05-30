@@ -12,6 +12,10 @@ public class BuscaLargura {
     }
 
     public void bfs(Nodo nodoInicial) {
+        // Limpe os conjuntos visitados e as distâncias antes de cada BFS
+        visitado.clear();
+        distancias.clear();
+        
         Queue<Nodo> fila = new LinkedList<>();
         visitado.add(nodoInicial);
         fila.add(nodoInicial);

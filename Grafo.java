@@ -33,6 +33,15 @@ public class Grafo {
         return numeroArestas;
     }
 
+    public Nodo getNodo(int x, int y) {
+        for (Nodo nodo : listaAdjacencia.keySet()) {
+            if (nodo.x() == x && nodo.y() == y) {
+                return nodo;
+            }
+        }
+        return null;
+    }
+
     public void adicionarNodo(Nodo nodo) {
         listaAdjacencia.putIfAbsent(nodo, new ArrayList<>());
     }
