@@ -42,8 +42,15 @@ public class ParseadorDeGrafo
                     {
                         continue;
                     }
+                    if (isPorto(c))
+                    {
+                        grafo.adicionarNodoInt(i, j, true, Character.getNumericValue(c));
+                    }
+                    else
+                    {
+                        grafo.adicionarNodoInt(i, j, false);
+                    }
 
-                    grafo.adicionarNodoInt(i, j, isPorto(c));
                 }
             }
 
@@ -69,8 +76,8 @@ public class ParseadorDeGrafo
 
         for (Nodo nodo: grafo.getNodos()) {
             for (int i = 0; i < 4; i++) {
-                int x = nodo.x() + dx[i];
-                int y = nodo.y() + dy[i];
+                int x = nodo.getX() + dx[i];
+                int y = nodo.getY() + dy[i];
 
                 if (x < 0 || x >= numLinhas || y < 0 || y >= numColunas) {
                     continue;
@@ -83,31 +90,4 @@ public class ParseadorDeGrafo
             }
         }   
     }
-
-
-    // private static void ligarNodos(Grafo grafo)
-    // {
-    //     int[] dx = {-1, 0, 1, 0};
-    //     int[] dy = {0, 1, 0, -1};
-
-    //     //A ideia é chamar esse aqui depois de popular o HashMap de nodos, aí junta tudo e depois é só buscar \o/
-
-    //     for (Nodo nodo: grafo.getNodos())
-    //     {
-    //         for (int i = 0; i < 4; i++)
-    //         {
-    //             int x = nodo.x() + dx[i];
-    //             int y = nodo.y() + dy[i];
-
-    //             if (x < 0 || x >= numLinhas || y < 0 || y >= numColunas)
-    //             {
-    //                 continue;
-    //             }
-
-    //             Nodo vizinho = new Nodo(x, y, isPorto(mapa[x][y]));
-
-    //             grafo.adicionarAresta(nodo, vizinho);
-    //         }
-    //     }
-    // }
 }

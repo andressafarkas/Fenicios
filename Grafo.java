@@ -35,7 +35,7 @@ public class Grafo {
 
     public Nodo getNodo(int x, int y) {
         for (Nodo nodo : listaAdjacencia.keySet()) {
-            if (nodo.x() == x && nodo.y() == y) {
+            if (nodo.getX() == x && nodo.getY() == y) {
                 return nodo;
             }
         }
@@ -57,6 +57,12 @@ public class Grafo {
     public void adicionarNodoInt(int x, int y, boolean porto)
     {
         Nodo nodo = new Nodo(x, y, porto);
+        listaAdjacencia.put(nodo, new ArrayList<>());
+    }
+
+    public void adicionarNodoInt(int x, int y, boolean porto, int portoId)
+    {
+        Nodo nodo = new Nodo(x, y, porto, portoId);
         listaAdjacencia.put(nodo, new ArrayList<>());
     }
 }
