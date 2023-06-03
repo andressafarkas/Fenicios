@@ -30,9 +30,9 @@ public class ParseadorDeGrafo
 
             List<String> linhas = reader.lines().toList();
 
-            for (int i = 1; i < numLinhas; i++)
+            for (int i = 0; i < numLinhas; i++)
             {
-                for (int j = 1; j < numColunas; j++)
+                for (int j = 0; j < numColunas; j++)
                 {
                     char c = linhas.get(i).charAt(j);
 
