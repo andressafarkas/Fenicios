@@ -16,8 +16,6 @@ public class main {
             resposta = input.nextInt();
             processarResposta();
         } while (resposta >= 0 && resposta <= 5);
-
-        System.out.println("Saindo...");
     }
 
     private static void exibirMenu() {
