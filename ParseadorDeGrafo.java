@@ -1,9 +1,6 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ParseadorDeGrafo
 {
@@ -16,7 +13,7 @@ public class ParseadorDeGrafo
 
     public static char[][] mapa;
 
-    public static Grafo parseToGraph(String filename)
+    public static Grafo parseParaGrafo(String filename)
     {
         Grafo grafo = null;
         try (BufferedReader reader = new BufferedReader(new FileReader(filename)))
