@@ -36,6 +36,6 @@ public class BuscaLargura {
     }
 
     public int distancia(Nodo nodo) {
-        return distancias.getOrDefault(nodo, -1);
+        return distancias.getOrDefault(nodo, 0);
     }
 }
