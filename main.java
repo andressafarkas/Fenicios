@@ -64,7 +64,12 @@ public class main {
         for (int i = 1; i < portos.size(); i++) {
             Nodo portoAtual = portos.get(i);
 
-            if (grafo.getNodos().contains(portoAtual)) {
+            if (grafo.getNodos().contains(portoAtual))
+            {
+                if (grafo.getAdjacentes(portoAtual).isEmpty())
+                {
+                    continue;
+                }
                 bfs.bfs(ultimoPorto);
                 combustivelNecessario += bfs.distancia(portoAtual);
                 ultimoPorto = portoAtual;

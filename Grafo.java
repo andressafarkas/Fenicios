@@ -29,6 +29,11 @@ public class Grafo {
         this.numeroArestas++;
     }
 
+    public List<Nodo> getAdjacentes(Nodo nodo)
+    {
+        return listaAdjacencia.get(nodo);
+    }
+
     public int getNumeroArestas() {
         return numeroArestas;
     }
