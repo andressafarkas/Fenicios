@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -58,21 +59,27 @@ public class main {
         int combustivelNecessario = 0;
         Nodo ultimoPorto = portos.get(0);
 
-        for (int i = 1; i < portos.size(); i++) {
+        for (int i = 1; i < portos.size(); i++)
+        {
             Nodo portoAtual = portos.get(i);
-            if (grafo.getNodos().contains(portoAtual)) {
-                if (grafo.getAdjacentes(portoAtual).isEmpty()) {
-                    continue;
-                }
-                bfs.bfs(ultimoPorto);
-                combustivelNecessario += bfs.distancia(portoAtual);
-                ultimoPorto = portoAtual;
+            if (grafo.getAdjacentes(portoAtual).isEmpty())
+            {
+                continue;
             }
-        }
-        if (grafo.getNodos().contains(portos.get(0))) {
             bfs.bfs(ultimoPorto);
-            combustivelNecessario += bfs.distancia(portos.get(0));
+            int distancia = bfs.distancia(portoAtual);
+            combustivelNecessario += distancia;
+            if (distancia < 1)
+            {
+                System.out.println("Porto " + portoAtual.getPortoId() + " está obstruído");
+                continue;
+            }
+            System.out.println("Distância entre porto " + ultimoPorto.getPortoId() + " e porto " + portoAtual.getPortoId() + ": " + distancia);
+            ultimoPorto = portoAtual;
         }
+
+        bfs.bfs(ultimoPorto);
+        combustivelNecessario += bfs.distancia(portos.get(0));
         System.out.println("Combustível mínimo necessário: " + combustivelNecessario);
     }
 }
