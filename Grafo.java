@@ -29,8 +29,7 @@ public class Grafo {
         this.numeroArestas++;
     }
 
-    public List<Nodo> getAdjacentes(Nodo nodo)
-    {
+    public List<Nodo> getAdjacentes(Nodo nodo){
         return listaAdjacencia.get(nodo);
     }
 
@@ -59,15 +58,14 @@ public class Grafo {
         return listaAdjacencia.getOrDefault(nodo, new ArrayList<>());
     }
 
-    public void adicionarNodoInt(int x, int y, boolean porto)
-    {
+    public void adicionarNodoInt(int x, int y, boolean porto) {
         Nodo nodo = new Nodo(x, y, porto);
         listaAdjacencia.put(nodo, new ArrayList<>());
     }
 
-    public void adicionarNodoInt(int x, int y, boolean porto, int portoId)
-    {
+    public void adicionarNodoInt(int x, int y, boolean porto, int portoId) {
         Nodo nodo = new Nodo(x, y, porto, portoId);
         listaAdjacencia.put(nodo, new ArrayList<>());
     }
+    
 }

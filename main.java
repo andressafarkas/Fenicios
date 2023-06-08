@@ -1,9 +1,6 @@
-import java.io.*;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-
-import java.util.*;
 
 public class main {
     private static int resposta;
@@ -15,7 +12,8 @@ public class main {
             exibirMenu();
             resposta = input.nextInt();
             processarResposta();
-        } while (resposta >= 0 && resposta <= 5);
+        } 
+        while (resposta >= 0 && resposta <= 5);
     }
 
     private static void exibirMenu() {
@@ -45,7 +43,6 @@ public class main {
                 return;
             }
         }
-
         calcularCombustivelNecessario();
     }
 
@@ -63,11 +60,8 @@ public class main {
 
         for (int i = 1; i < portos.size(); i++) {
             Nodo portoAtual = portos.get(i);
-
-            if (grafo.getNodos().contains(portoAtual))
-            {
-                if (grafo.getAdjacentes(portoAtual).isEmpty())
-                {
+            if (grafo.getNodos().contains(portoAtual)) {
+                if (grafo.getAdjacentes(portoAtual).isEmpty()) {
                     continue;
                 }
                 bfs.bfs(ultimoPorto);
@@ -75,12 +69,10 @@ public class main {
                 ultimoPorto = portoAtual;
             }
         }
-
         if (grafo.getNodos().contains(portos.get(0))) {
             bfs.bfs(ultimoPorto);
             combustivelNecessario += bfs.distancia(portos.get(0));
         }
-
         System.out.println("Combustível mínimo necessário: " + combustivelNecessario);
     }
 }

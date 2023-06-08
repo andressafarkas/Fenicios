@@ -15,15 +15,12 @@ public class BuscaLargura {
         // Limpe os conjuntos visitados e as distâncias antes de cada BFS
         visitado.clear();
         distancias.clear();
-        
         Queue<Nodo> fila = new LinkedList<>();
         visitado.add(nodoInicial);
         fila.add(nodoInicial);
         distancias.put(nodoInicial, 0);
-
         while (!fila.isEmpty()) {
             Nodo nodoAtual = fila.poll();
-
             ArrayList<Nodo> adjacentes = grafo.verticesAdjacentes(nodoAtual);
             for (Nodo nodoAdjacente : adjacentes) {
                 if (!visitado.contains(nodoAdjacente)) {
