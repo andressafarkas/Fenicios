@@ -80,6 +80,7 @@ public class main {
 
         bfs.bfs(ultimoPorto);
         combustivelNecessario += bfs.distancia(portos.get(0));
+        System.out.println("Distância do caminho de volta: " + bfs.distancia(portos.get(0)));
         System.out.println("Combustível mínimo necessário: " + combustivelNecessario);
     }
 }
