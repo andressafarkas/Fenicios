@@ -46,8 +46,9 @@ public class main {
         }
         calcularCombustivelNecessario();
     }
-
+    
     private static void calcularCombustivelNecessario() {
+        long tempoInicial = System.currentTimeMillis();
         Grafo grafo = ParseadorDeGrafo.parseParaGrafo(mapa);
         BuscaLargura bfs = new BuscaLargura(grafo);
 
@@ -82,5 +83,7 @@ public class main {
         combustivelNecessario += bfs.distancia(portos.get(0));
         System.out.println("Distância do caminho de volta: " + bfs.distancia(portos.get(0)));
         System.out.println("Combustível mínimo necessário: " + combustivelNecessario);
+        System.out.printf("O código executou em: %.3f s%n", (System.currentTimeMillis() - tempoInicial) / 1000d);
+        System.out.println();
     }
 }
